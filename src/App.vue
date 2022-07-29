@@ -44,7 +44,7 @@ const CreateUser = () => {
 
 		<label><span>Sort</span><input type="checkbox" v-model="sort" /></label>
 		<div class="users" v-if="!sort">
-			<div v-for="user in user_store.users" class="user">
+			<div v-for="user in user_store.users" class="user" :key="user.id + 'all'">
 				<div>ID: {{ user.id }}</div>
 				<h3>{{ user.name }}</h3>
 				<p>{{ user.email }}</p>
@@ -52,7 +52,7 @@ const CreateUser = () => {
 		</div>
 
 		<div class="users" v-else>
-			<div v-for="user in user_store.usersByName" class="user">
+			<div v-for="user in user_store.usersByName" class="user" :key="user.id">
 				<div>ID: {{ user.id }}</div>
 				<h3>{{ user.name }}</h3>
 				<p>{{ user.email }}</p>
